@@ -1263,3 +1263,1631 @@
 
     footer small {
       color: #d8b68d;
+    }
+
+    /* =====================================================
+       TOAST
+       ===================================================== */
+
+    .toast {
+      position: fixed;
+
+      left: 50%;
+      bottom: 25px;
+
+      z-index: 5000;
+
+      max-width:
+        calc(100% - 30px);
+
+      padding:
+        12px 18px;
+
+      border-radius: 999px;
+
+      background: #63231b;
+
+      color: white;
+
+      text-align: center;
+
+      font-weight: 800;
+
+      box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.22);
+
+      transform:
+        translate(-50%, 150px);
+
+      transition:
+        transform 0.3s ease;
+    }
+
+    .toast.show {
+      transform:
+        translate(-50%, 0);
+    }
+
+    /* =====================================================
+       PETALS
+       ===================================================== */
+
+    .petal {
+      position: fixed;
+
+      top: -30px;
+
+      z-index: 3000;
+
+      pointer-events: none;
+
+      animation:
+        fall linear forwards;
+    }
+
+    /* =====================================================
+       BACK TO TOP
+       ===================================================== */
+
+    .back-top {
+      position: fixed;
+
+      right: 18px;
+      bottom: 18px;
+
+      z-index: 900;
+
+      width: 45px;
+      height: 45px;
+
+      border: 0;
+
+      border-radius: 50%;
+
+      background: var(--red);
+
+      color: white;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 10px 25px
+        rgba(80, 20, 10, 0.25);
+
+      display: none;
+    }
+
+    .back-top.show {
+      display: block;
+    }
+
+    /* =====================================================
+       ANIMATIONS
+       ===================================================== */
+
+    @keyframes floating {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-9px);
+      }
+    }
+
+    @keyframes fall {
+      to {
+        transform:
+          translateY(110vh)
+          rotate(500deg);
+
+        opacity: 0.2;
+      }
+    }
+
+    /* =====================================================
+       TABLET
+       ===================================================== */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .quick-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+    }
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 700px;
+
+        padding:
+          65px 17px 100px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+
+        max-width: 310px;
+
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .countdown {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding:
+          70px 17px;
+      }
+
+      .about-card,
+      .quote-card,
+      .aarti-card,
+      .president-card,
+      .location-card {
+        padding: 27px 20px;
+      }
+
+      .timeline::before {
+        left: 23px;
+      }
+
+      .event {
+        grid-template-columns:
+          48px 1fr;
+
+        gap: 12px;
+      }
+
+      .event-icon {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =====================================================
+       TOP BAR
+       ===================================================== -->
+
+  <div class="topbar">
+    🙏 गणपती बाप्पा मोरया • गणेशोत्सव २०२६ • कोठारींचा महाराजा
+  </div>
+
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
+
+  <nav>
+    <div class="nav-inner">
+
+      <a class="brand" href="#home">
+        कोठारींचा महाराजा
+        <small>आपला बाप्पा • Nandura</small>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">मुख्यपृष्ठ</a>
+        <a href="#darshan">बाप्पा</a>
+        <a href="#events">कार्यक्रम</a>
+        <a href="#aarti">आरती</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">आमची कथा</a>
+        <a href="#president">अध्यक्ष</a>
+        <a href="#location">स्थान</a>
+      </div>
+
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Menu"
+      >
+        ☰
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
+  <header class="hero" id="home">
+
+    <div class="hero-content">
+
+      <div class="om">ॐ</div>
+
+      <div class="ganesh-line">
+        🪔 श्री गणेशाय नमः
+      </div>
+
+      <h1>
+        कोठारींचा महाराजा
+      </h1>
+
+      <div class="hero-subtitle">
+        गणपती बाप्पा • Nandura
+      </div>
+
+      <p class="hero-description">
+        आपल्या घरातील, आपल्या मुलांचा आणि आपल्या माणसांचा
+        प्रेमाचा गणपती. भक्ती, प्रेम आणि आनंदाने साजरा होणारा
+        गणेशोत्सव.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          href="#darshan"
+          class="btn btn-primary"
+        >
+          🙏 बाप्पाचे दर्शन
+        </a>
+
+        <a
+          href="#events"
+          class="btn btn-secondary"
+        >
+          📅 कार्यक्रम पाहा
+        </a>
+
+        <button
+          class="btn btn-secondary"
+          onclick="lightDiya()"
+        >
+          🪔 दिवा लावा
+        </button>
+
+      </div>
+
+      <!--
+        =====================================================
+        REAL BAPPA PHOTO
+
+        तुमचा फोटो असल्यास हा placeholder काढून:
+
+        <img
+          src="images/bappa.jpg"
+          alt="कोठारींचा महाराजा"
+          class="real-bappa"
+        >
+
+        वापरा.
+        =====================================================
+      -->
+
+      <div class="bappa-container">
+
+        <div
+          class="bappa-circle"
+          aria-label="कोठारींचा महाराजा"
+        ></div>
+
+        <div class="bappa-hint">
+          💡 तुमचा Bappa फोटो येथे लावल्यास
+          Hero आणखी सुंदर दिसेल.
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- =====================================================
+       COUNTDOWN
+       ===================================================== -->
+
+  <section class="countdown-section">
+
+    <div class="kicker">
+      आगमनाची तयारी
+    </div>
+
+    <h2 class="section-title">
+      बाप्पा येत आहेत! 🥳
+    </h2>
+
+    <p id="countdownMessage">
+      बाप्पाचे आगमन • १४ सप्टेंबर २०२६
+    </p>
+
+    <div class="countdown">
+
+      <div class="time-box">
+        <div
+          class="time-number"
+          id="days"
+        >
+          00
+        </div>
+
+        <div class="time-label">
+          दिवस
+        </div>
+      </div>
+
+      <div class="time-box">
+        <div
+          class="time-number"
+          id="hours"
+        >
+          00
+        </div>
+
+        <div class="time-label">
+          तास
+        </div>
+      </div>
+
+      <div class="time-box">
+        <div
+          class="time-number"
+          id="minutes"
+        >
+          00
+        </div>
+
+        <div class="time-label">
+          मिनिटे
+        </div>
+      </div>
+
+      <div class="time-box">
+        <div
+          class="time-number"
+          id="seconds"
+        >
+          00
+        </div>
+
+        <div class="time-label">
+          सेकंद
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       DARSHAN
+       ===================================================== -->
+
+  <section
+    class="section"
+    id="darshan"
+  >
+
+    <div class="section-heading">
+
+      <div class="kicker">
+        बाप्पाचे दर्शन
+      </div>
+
+      <h2 class="section-title">
+        मनापासून स्वागत,
+        प्रेमाने दर्शन. 🙏
+      </h2>
+
+      <p class="section-intro">
+        बाप्पाच्या दर्शनासाठी या आणि गणेशोत्सवाच्या
+        आनंदात सहभागी व्हा.
+      </p>
+
+    </div>
+
+    <div class="quick-grid">
+
+      <div class="quick-card">
+
+        <div class="quick-icon">
+          🙏
+        </div>
+
+        <h3>
+          दर्शन
+        </h3>
+
+        <p>
+          कोठारींच्या महाराजाचे मनमोहक दर्शन.
+        </p>
+
+      </div>
+
+      <div class="quick-card">
+
+        <div class="quick-icon">
+          🪔
+        </div>
+
+        <h3>
+          आरती
+        </h3>
+
+        <p>
+          भक्ती, प्रार्थना आणि मंगलमय वातावरण.
+        </p>
+
+      </div>
+
+      <div class="quick-card">
+
+        <div class="quick-icon">
+          📸
+        </div>
+
+        <h3>
+          आठवणी
+        </h3>
+
+        <p>
+          उत्सवातील सुंदर क्षण जतन करा.
+        </p>
+
+      </div>
+
+      <div class="quick-card">
+
+        <div class="quick-icon">
+          ❤️
+        </div>
+
+        <h3>
+          आपली माणसं
+        </h3>
+
+        <p>
+          कुटुंब आणि मित्रांसोबत बाप्पाचा उत्सव.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       EVENTS
+       ===================================================== -->
+
+  <section
+    class="section events-section"
+    id="events"
+  >
+
+    <div class="section-heading">
+
+      <div class="kicker">
+        गणेशोत्सव २०२६
+      </div>
+
+      <h2 class="section-title">
+        कार्यक्रमाची रूपरेषा 📅
+      </h2>
+
+      <p class="section-intro">
+        तुमच्या actual schedule नुसार खालील
+        तारीख आणि वेळ update करा.
+      </p>
+
+    </div>
+
+    <div class="timeline">
+
+      <div class="event">
+
+        <div class="event-icon">
+          🥁
+        </div>
+
+        <div class="event-card">
+
+          <div class="event-date">
+            १४ सप्टेंबर २०२६
+          </div>
+
+          <h3>
+            बाप्पाचे आगमन व स्थापना
+          </h3>
+
+          <p>
+            वेळ:
+            <strong>
+              येथे अचूक वेळ भरा
+            </strong>
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="event">
+
+        <div class="event-icon">
+          🪔
+        </div>
+
+        <div class="event-card">
+
+          <div class="event-date">
+            तारीख लवकरच
+          </div>
+
+          <h3>
+            प्रथम आरती
+          </h3>
+
+          <p>
+            वेळ आणि विशेष कार्यक्रमाची
+            माहिती येथे भरा.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="event">
+
+        <div class="event-icon">
+          🌺
+        </div>
+
+        <div class="event-card">
+
+          <div class="event-date">
+            तारीख लवकरच
+          </div>
+
+          <h3>
+            महाआरती / विशेष दिवस
+          </h3>
+
+          <p>
+            तुमच्या actual कार्यक्रमानुसार
+            हा card update करा.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="event">
+
+        <div class="event-icon">
+          🍛
+        </div>
+
+        <div class="event-card">
+
+          <div class="event-date">
+            तारीख लवकरच
+          </div>
+
+          <h3>
+            महाप्रसाद
+          </h3>
+
+          <p>
+            महाप्रसादाची तारीख, वेळ आणि
+            माहिती येथे भरा.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="event">
+
+        <div class="event-icon">
+          🙏
+        </div>
+
+        <div class="event-card">
+
+          <div class="event-date">
+            विसर्जन — तारीख लवकरच
+          </div>
+
+          <h3>
+            बाप्पाला निरोप
+          </h3>
+
+          <p>
+            विसर्जनाची अचूक तारीख,
+            वेळ आणि मार्ग येथे द्या.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       AARTI
+       ===================================================== -->
+
+  <section
+    class="section aarti-section"
+    id="aarti"
+  >
+
+    <div class="section-heading">
+
+      <div class="kicker">
+        भक्ती
+      </div>
+
+      <h2 class="section-title">
+        आजची आरती 🪔
+      </h2>
+
+      <p class="section-intro">
+        बाप्पाच्या चरणी भक्तिभावाने आरती.
+      </p>
+
+    </div>
+
+    <div class="aarti-card">
+
+      <div class="aarti-symbol">
+        🪔
+      </div>
+
+      <h3>
+        सुखकर्ता दुःखहर्ता
+      </h3>
+
+      <div class="aarti-text">
+
+        सुखकर्ता दुःखहर्ता वार्ता विघ्नाची<br />
+
+        नुरवी पुरवी प्रेम कृपा जयाची<br />
+
+        सर्वांगी सुंदर उटी शेंदुराची<br />
+
+        कंठी झळके माळ मुक्ताफळांची
+
+      </div>
+
+      <div class="aarti-note">
+
+        💡 तुमच्याकडे अधिकृत आरतीचा
+        audio असल्यास तो येथे जोडू शकता.
+
+      </div>
+
+      <button
+        class="btn btn-primary"
+        style="margin-top:20px"
+        onclick="startAarti()"
+      >
+        🙏 आरती सुरू करा
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       GALLERY
+       ===================================================== -->
+
+  <section
+    class="section"
+    id="gallery"
+  >
+
+    <div class="section-heading">
+
+      <div class="kicker">
+        फोटो गॅलरी
+      </div>
+
+      <h2 class="section-title">
+        बाप्पाच्या आठवणी 📸
+      </h2>
+
+      <p class="section-intro">
+        तुमचे Bappa, decoration, आरती आणि
+        विसर्जनाचे photos येथे जोडा.
+      </p>
+
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-card">
+
+        <div class="gallery-placeholder">
+
+          <div>
+            <span>🙏</span>
+
+            बाप्पाचे प्रथम दर्शन
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card">
+
+        <div class="gallery-placeholder">
+
+          <div>
+            <span>🌺</span>
+
+            सुंदर सजावट
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card">
+
+        <div class="gallery-placeholder">
+
+          <div>
+            <span>🪔</span>
+
+            आरतीचा क्षण
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card">
+
+        <div class="gallery-placeholder">
+
+          <div>
+            <span>🥁</span>
+
+            बाप्पाचे आगमन
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card">
+
+        <div class="gallery-placeholder">
+
+          <div>
+            <span>❤️</span>
+
+            कुटुंबासोबत
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card">
+
+        <div class="gallery-placeholder">
+
+          <div>
+            <span>🌊</span>
+
+            विसर्जनाच्या आठवणी
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       STORY
+       ===================================================== -->
+
+  <section
+    class="section"
+    id="about"
+  >
+
+    <div class="section-heading">
+
+      <div class="kicker">
+        आमची कथा
+      </div>
+
+      <h2 class="section-title">
+        छोटासा गणपती,
+        मोठा आनंद. ❤️
+      </h2>
+
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-card">
+
+        <h3>
+          कोठारींचा महाराजा —
+          आमचा प्रवास
+        </h3>
+
+        <p>
+          हा उत्सव आपल्या कुटुंबासाठी,
+          मुलांसाठी आणि जवळच्या माणसांसोबत
+          प्रेमाने साजरा करण्याचा सुंदर प्रयत्न आहे.
+        </p>
+
+        <p>
+          येथे तुमच्या गणपती उत्सवाची खरी
+          story लिहा — स्थापना कधी सुरू झाली,
+          पहिला उत्सव कसा झाला आणि
+          “कोठारींचा महाराजा” हे नाव कसे आले.
+        </p>
+
+        <p>
+          या section मध्ये जुने photos आणि
+          वर्षानुसार timeline देखील जोडता येईल.
+        </p>
+
+      </div>
+
+      <div class="quote-card">
+
+        <div class="quote">
+          “बाप्पा मोठा असो वा छोटा —
+          भक्ती आणि प्रेम मोठे असते.”
+        </div>
+
+        <div class="quote-small">
+          गणपती बाप्पा मोरया! 🙏
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       PRESIDENT
+       ===================================================== -->
+
+  <section
+    class="section president-section"
+    id="president"
+  >
+
+    <div class="section-heading">
+
+      <div class="kicker">
+        मंडळाची माहिती
+      </div>
+
+      <h2 class="section-title">
+        आमचे अध्यक्ष
+      </h2>
+
+      <p class="section-intro">
+        कोठारींचा महाराजा गणपती उत्सव.
+      </p>
+
+    </div>
+
+    <div class="president-card">
+
+      <div class="avatar">
+        ॐ
+      </div>
+
+      <h3>
+        अनिश कोठारी
+      </h3>
+
+      <p>
+        कोठारींचा महाराजा गणपती उत्सवाचे
+        अध्यक्ष म्हणून श्री. अनिश कोठारी.
+        बाप्पाच्या कृपेने हा सुंदर उत्सव
+        कुटुंबीय आणि मुलांसोबत आनंदाने
+        साजरा करण्याचा प्रयत्न.
+      </p>
+
+      <div
+        style="
+          margin-top:15px;
+          color:#b36b2b;
+          font-weight:900;
+        "
+      >
+        अध्यक्ष • कोठारींचा महाराजा
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       LOCATION
+       ===================================================== -->
+
+  <section
+    class="section"
+    id="location"
+  >
+
+    <div class="section-heading">
+
+      <div class="kicker">
+        भेट द्या
+      </div>
+
+      <h2 class="section-title">
+        बाप्पाच्या दर्शनासाठी 📍
+      </h2>
+
+      <p class="section-intro">
+        Exact venue address आणि Google Maps
+        link खाली update करा.
+      </p>
+
+    </div>
+
+    <div class="location-card">
+
+      <div class="location-icon">
+        📍
+      </div>
+
+      <h3>
+        कोठारींचा महाराजा
+      </h3>
+
+      <p>
+        Nandura, Maharashtra
+      </p>
+
+      <div class="map-box">
+
+        <div>
+
+          <div
+            style="
+              font-size:3rem;
+              margin-bottom:5px;
+            "
+          >
+            📍
+          </div>
+
+          <div>
+            येथे exact Google Maps
+            location / map embed जोडा.
+          </div>
+
+        </div>
+
+      </div>
+
+      <!--
+        IMPORTANT:
+        खालील URL तुमच्या exact
+        Google Maps location ने बदला.
+      -->
+
+      <a
+        class="btn btn-primary"
+        href="https://www.google.com/maps/search/?api=1&query=Nandura%2C%20Maharashtra"
+        target="_blank"
+        rel="noopener"
+        style="margin-top:20px"
+      >
+        📍 Google Maps वर पहा
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       SHARE
+       ===================================================== -->
+
+  <section
+    class="section share-section"
+  >
+
+    <div class="share-box">
+
+      <h2>
+        बाप्पाचा संदेश पुढे पोहोचवा ❤️
+      </h2>
+
+      <p>
+        कोठारींच्या महाराजाचे दर्शन
+        तुमच्या मित्रांना आणि कुटुंबाला share करा.
+      </p>
+
+      <div class="share-buttons">
+
+        <button
+          class="btn"
+          onclick="shareWebsite()"
+        >
+          📲 Share करा
+        </button>
+
+        <button
+          class="btn"
+          onclick="copyWebsiteLink()"
+        >
+          🔗 Link Copy करा
+        </button>
+
+        <a
+          class="btn"
+          href="https://wa.me/?text=%F0%9F%99%8F%20%E0%A4%95%E0%A5%8B%E0%A4%A0%E0%A4%BE%E0%A4%B0%E0%A5%80%E0%A4%82%E0%A4%9A%E0%A4%BE%20%E0%A4%AE%E0%A4%B9%E0%A4%BE%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%BE%20%E2%80%94%20%E0%A4%97%E0%A4%A3%E0%A4%AA%E0%A4%A4%E0%A5%80%20%E0%A4%AC%E0%A4%BE%E0%A4%AA%E0%A5%8D%E0%A4%AA%E0%A4%BE%20%E0%A4%AE%E0%A5%8B%E0%A4%B0%E0%A4%AF%E0%A4%BE!%0Ahttps%3A%2F%2Fhiteshkotharinn.github.io%2Fkotharicha-maharaja%2F"
+          target="_blank"
+          rel="noopener"
+        >
+          💚 WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer>
+
+    <div class="big">
+      गणपती बाप्पा मोरया! 🙏
+    </div>
+
+    <p>
+      कोठारींच्या महाराजाच्या चरणी मनापासून नमस्कार.
+      आपल्या सर्वांच्या आयुष्यात सुख, शांती आणि आनंद नांदो.
+    </p>
+
+    <strong>
+      कोठारींचा महाराजा
+    </strong>
+
+    <div
+      style="
+        font-size:.85rem;
+        margin-top:4px;
+        color:#e6c395;
+      "
+    >
+      आपला बाप्पा • Nandura
+    </div>
+
+    <div
+      style="
+        font-size:.78rem;
+        margin-top:22px;
+        color:#d8b68d;
+      "
+    >
+      © २०२६ कोठारींचा महाराजा
+      • अध्यक्ष: अनिश कोठारी
+    </div>
+
+  </footer>
+
+  <!-- =====================================================
+       TOAST
+       ===================================================== -->
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+  <!-- =====================================================
+       BACK TO TOP
+       ===================================================== -->
+
+  <button
+    class="back-top"
+    id="backTop"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="वर जा"
+  >
+    ↑
+  </button>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+    /* =====================================================
+       SETTINGS
+       ===================================================== */
+
+    /*
+      BAPPA ARRIVAL DATE
+
+      14 September 2026
+
+      Timezone:
+      India Standard Time (+05:30)
+    */
+
+    const ARRIVAL_DATE =
+      new Date(
+        "2026-09-14T00:00:00+05:30"
+      );
+
+
+    /* =====================================================
+       COUNTDOWN
+       ===================================================== */
+
+    function updateCountdown() {
+
+      const now = new Date();
+
+      const difference =
+        ARRIVAL_DATE - now;
+
+      if (difference <= 0) {
+
+        document.getElementById("days")
+          .textContent = "🎉";
+
+        document.getElementById("hours")
+          .textContent = "00";
+
+        document.getElementById("minutes")
+          .textContent = "00";
+
+        document.getElementById("seconds")
+          .textContent = "00";
+
+        document.getElementById(
+          "countdownMessage"
+        ).textContent =
+          "बाप्पा विराजमान झाले! गणपती बाप्पा मोरया! 🙏";
+
+        return;
+      }
+
+
+      const days =
+        Math.floor(
+          difference / 86400000
+        );
+
+      const hours =
+        Math.floor(
+          (difference / 3600000) % 24
+        );
+
+      const minutes =
+        Math.floor(
+          (difference / 60000) % 60
+        );
+
+      const seconds =
+        Math.floor(
+          (difference / 1000) % 60
+        );
+
+
+      document.getElementById("days")
+        .textContent =
+        String(days).padStart(2, "0");
+
+      document.getElementById("hours")
+        .textContent =
+        String(hours).padStart(2, "0");
+
+      document.getElementById("minutes")
+        .textContent =
+        String(minutes).padStart(2, "0");
+
+      document.getElementById("seconds")
+        .textContent =
+        String(seconds).padStart(2, "0");
+    }
+
+
+    updateCountdown();
+
+    setInterval(
+      updateCountdown,
+      1000
+    );
+
+
+    /* =====================================================
+       TOAST
+       ===================================================== */
+
+    function showToast(message) {
+
+      const toast =
+        document.getElementById("toast");
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+      clearTimeout(
+        window.toastTimeout
+      );
+
+      window.toastTimeout =
+        setTimeout(
+          function () {
+            toast.classList.remove("show");
+          },
+          2800
+        );
+    }
+
+
+    /* =====================================================
+       DIYA
+       ===================================================== */
+
+    function lightDiya() {
+
+      createPetals(12);
+
+      showToast(
+        "🪔 दिवा लावला! बाप्पाच्या आशीर्वादाने घर आनंदाने भरून जावो 🙏"
+      );
+    }
+
+
+    /* =====================================================
+       AARTI
+       ===================================================== */
+
+    function startAarti() {
+
+      createPetals(6);
+
+      showToast(
+        "🪔 गणपती बाप्पा मोरया! आरतीला सुरुवात करा 🙏"
+      );
+    }
+
+
+    /* =====================================================
+       PETALS
+       ===================================================== */
+
+    function createPetals(count = 10) {
+
+      const flowers = [
+        "🌺",
+        "🌼",
+        "🌸",
+        "🧡"
+      ];
+
+      for (
+        let i = 0;
+        i < count;
+        i++
+      ) {
+
+        const petal =
+          document.createElement("div");
+
+        petal.className =
+          "petal";
+
+        petal.textContent =
+          flowers[
+            Math.floor(
+              Math.random() *
+              flowers.length
+            )
+          ];
+
+        petal.style.left =
+          Math.random() * 100 + "vw";
+
+        petal.style.fontSize =
+          (
+            0.9 +
+            Math.random() * 1.1
+          ) + "rem";
+
+        petal.style.animationDuration =
+          (
+            3 +
+            Math.random() * 3
+          ) + "s";
+
+        document.body.appendChild(
+          petal
+        );
+
+        setTimeout(
+          function () {
+            petal.remove();
+          },
+          6500
+        );
+      }
+    }
+
+
+    /* =====================================================
+       SHARE
+       ===================================================== */
+
+    async function shareWebsite() {
+
+      const shareData = {
+
+        title:
+          "कोठारींचा महाराजा",
+
+        text:
+          "🙏 कोठारींच्या महाराजाचे दर्शन घ्या — गणपती बाप्पा मोरया!",
+
+        url:
+          window.location.href
+      };
+
+
+      if (
+        navigator.share
+      ) {
+
+        try {
+
+          await navigator.share(
+            shareData
+          );
+
+        } catch (error) {
+
+          // User cancelled share.
+
+        }
+
+      } else {
+
+        copyWebsiteLink();
+
+      }
+    }
+
+
+    /* =====================================================
+       COPY LINK
+       ===================================================== */
+
+    async function copyWebsiteLink() {
+
+      try {
+
+        await navigator.clipboard
+          .writeText(
+            window.location.href
+          );
+
+        showToast(
+          "🔗 Website link copy झाला!"
+        );
+
+      } catch (error) {
+
+        showToast(
+          "Link copy करता आला नाही."
+        );
+      }
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+       ===================================================== */
+
+    function toggleMenu() {
+
+      const menu =
+        document.getElementById(
+          "navLinks"
+        );
+
+      if (
+        menu.style.display ===
+        "flex"
+      ) {
+
+        menu.style.display =
+          "none";
+
+        return;
+      }
+
+
+      menu.style.display =
+        "flex";
+
+      menu.style.position =
+        "absolute";
+
+      menu.style.top =
+        "72px";
+
+      menu.style.left =
+        "0";
+
+      menu.style.right =
+        "0";
+
+      menu.style.padding =
+        "20px";
+
+      menu.style.background =
+        "#fffaf0";
+
+      menu.style.flexDirection =
+        "column";
+
+      menu.style.boxShadow =
+        "0 15px 30px rgba(0,0,0,.08)";
+    }
+
+
+    /* =====================================================
+       CLOSE MOBILE MENU AFTER CLICK
+       ===================================================== */
+
+    document
+      .querySelectorAll(
+        ".nav-links a"
+      )
+      .forEach(
+        function (link) {
+
+          link.addEventListener(
+            "click",
+            function () {
+
+              if (
+                window.innerWidth <=
+                900
+              ) {
+
+                document
+                  .getElementById(
+                    "navLinks"
+                  )
+                  .style.display =
+                  "none";
+              }
+            }
+          );
+
+        }
+      );
+
+
+    /* =====================================================
+       BACK TO TOP
+       ===================================================== */
+
+    const backTop =
+      document.getElementById(
+        "backTop"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+      function () {
+
+        if (
+          window.scrollY > 500
+        ) {
+
+          backTop.classList.add(
+            "show"
+          );
+
+        } else {
+
+          backTop.classList.remove(
+            "show"
+          );
+        }
+      }
+    );
+
+
+    /* =====================================================
+       GALLERY CLICK
+       ===================================================== */
+
+    document
+      .querySelectorAll(
+        ".gallery-card"
+      )
+      .forEach(
+        function (card) {
+
+          card.addEventListener(
+            "click",
+            function () {
+
+              showToast(
+                "📸 येथे तुमचा actual Bappa photo जोडता येईल."
+              );
+
+            }
+          );
+
+        }
+      );
+
+  </script>
+
+</body>
+</html>
